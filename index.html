@@ -42,7 +42,6 @@
         .bg-orb:nth-child(3) { width:200px; height:200px; background:#2563eb; top:40%; left:50%; animation-delay:-8s; animation-duration:16s; opacity:0.03; }
         @keyframes orbFloat { 0%,100%{transform:translate(0,0)scale(1);} 25%{transform:translate(40px,-30px)scale(1.1);} 50%{transform:translate(-20px,20px)scale(0.9);} 75%{transform:translate(-30px,-10px)scale(1.05);} }
 
-        /* TUTORIAL */
         .tutorial-overlay { position:fixed; inset:0; background:rgba(3,7,18,0.92); z-index:200; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); animation:fadeIn 0.5s ease; padding:20px; }
         @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
         .tutorial-container { width:100%; max-width:420px; max-height:85vh; overflow-y:auto; display:flex; flex-direction:column; animation:slideUp 0.6s cubic-bezier(0.22,0.61,0.36,1); padding-bottom:10px; }
@@ -73,23 +72,9 @@
         .tutorial-btn-primary:active { transform:scale(0.96); }
         .tutorial-btn-skip { background:transparent; border:none; color:var(--text-muted); font-size:11px; font-weight:500; cursor:pointer; padding:6px; font-family:'Inter',sans-serif; }
 
-        /* CAPTCHA OVERLAY */
-        .captcha-overlay {
-            position:fixed; inset:0;
-            background:rgba(3,7,18,0.94);
-            z-index:300;
-            display:flex; align-items:center; justify-content:center;
-            backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-            animation:captchaFadeIn 0.3s ease; padding:20px;
-        }
+        .captcha-overlay { position:fixed; inset:0; background:rgba(3,7,18,0.94); z-index:300; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); animation:captchaFadeIn 0.3s ease; padding:20px; }
         @keyframes captchaFadeIn { from{opacity:0;} to{opacity:1;} }
-        .captcha-card {
-            background:var(--bg-secondary); border:1px solid var(--border);
-            border-radius:24px; padding:32px 24px 24px;
-            width:100%; max-width:360px; text-align:center;
-            box-shadow:0 20px 60px rgba(0,0,0,0.6);
-            animation:captchaSlideUp 0.4s cubic-bezier(0.22,0.61,0.36,1);
-        }
+        .captcha-card { background:var(--bg-secondary); border:1px solid var(--border); border-radius:24px; padding:32px 24px 24px; width:100%; max-width:360px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.6); animation:captchaSlideUp 0.4s cubic-bezier(0.22,0.61,0.36,1); }
         @keyframes captchaSlideUp { from{opacity:0;transform:translateY(30px)scale(0.95);} to{opacity:1;transform:translateY(0)scale(1);} }
         .captcha-shield { width:64px; height:64px; margin:0 auto 16px; background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(96,165,250,0.08)); border-radius:50%; display:flex; align-items:center; justify-content:center; animation:captchaShieldPulse 2s ease-in-out infinite; }
         @keyframes captchaShieldPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
@@ -221,7 +206,6 @@
         .send-btn:disabled { opacity:0.35; transform:none; cursor:not-allowed; box-shadow:none; }
         .send-btn svg { width:16px; height:16px; }
         .spinner { width:16px; height:16px; border:2px solid rgba(255,255,255,0.2); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite; }
-        @keyframes spin { to{transform:rotate(360deg);} }
 
         .model-bar { display:flex; gap:5px; align-items:center; }
         .model-bar-label { font-size:9px; color:var(--text-muted); font-weight:600; text-transform:uppercase; flex-shrink:0; }
@@ -258,7 +242,7 @@
             <div class="tutorial-hero">
                 <div class="tutorial-logo-ring"><img src="pfp.jpg" alt="RexzAI" onerror="this.style.display='none'"></div>
                 <div class="tutorial-hero-title">Selamat Datang di <span class="tutorial-hero-grad">RexzAI</span></div>
-                <div class="tutorial-hero-sub">Asisten AI dengan 2 model gratis. Verifikasi captcha akan muncul setelah tutorial.</div>
+                <div class="tutorial-hero-sub">Asisten AI dengan 2 model gratis. Limit <span style="color:#fcd34d;">15x/hari</span>. CAPTCHA muncul setelah tutorial.</div>
             </div>
             <div class="tutorial-section">
                 <div class="tutorial-section-label">Model</div>
@@ -267,7 +251,7 @@
             </div>
             <div class="tutorial-section">
                 <div class="tutorial-section-label">Keamanan</div>
-                <div class="tutorial-card"><div class="tutorial-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="tutorial-card-body"><div class="tutorial-card-title">CAPTCHA + Rate Limit</div><div class="tutorial-card-desc">Dilengkapi verifikasi captcha & rate limiter untuk mencegah bot.</div></div></div>
+                <div class="tutorial-card"><div class="tutorial-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="tutorial-card-body"><div class="tutorial-card-title">CAPTCHA + Limit Harian</div><div class="tutorial-card-desc">Verifikasi manusia + maksimal <span class="hl">15 pesan/hari</span>. Reset jam 00:00.</div></div></div>
             </div>
             <div class="tutorial-footer">
                 <button class="tutorial-btn-primary" onclick="finishTutorial()">Mulai Chat</button>
@@ -290,7 +274,7 @@
             <div class="header-pfp"><img src="pfp.jpg" alt="RexzAI" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%222%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%224%22/%3E%3Ccircle cx=%229%22 cy=%2210%22 r=%221.5%22 fill=%22%2360a5fa%22/%3E%3Ccircle cx=%2215%22 cy=%2210%22 r=%221.5%22 fill=%22%2360a5fa%22/%3E%3Cpath d=%22M9 15c.83.67 1.83 1 3 1s2.17-.33 3-1%22 stroke-linecap=%22round%22/%3E%3C/svg%3E';"></div>
             <div class="header-info">
                 <div class="header-title">RexzAI<span class="header-badge" id="headerBadge">Nemotron</span></div>
-                <div class="header-subtitle"><span class="online-dot"></span>Online · <span id="headerModelName">Nemotron Ultra</span></div>
+                <div class="header-subtitle"><span class="online-dot"></span>Online · <span id="headerModelName">Nemotron Ultra</span> · <span id="rateInfo" style="color:#22c55e;">0/15 hari ini</span></div>
             </div>
             <div class="header-actions">
                 <button class="history-btn" onclick="openSidebar()" title="Riwayat"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
@@ -302,7 +286,7 @@
             <div class="welcome-wrap" id="welcomeMsg">
                 <div class="welcome-pfp"><img src="pfp.jpg" alt="RexzAI" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%222%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%224%22/%3E%3Ccircle cx=%229%22 cy=%2210%22 r=%221.5%22 fill=%22%2360a5fa%22/%3E%3Ccircle cx=%2215%22 cy=%2210%22 r=%221.5%22 fill=%22%2360a5fa%22/%3E%3Cpath d=%22M9 15c.83.67 1.83 1 3 1s2.17-.33 3-1%22 stroke-linecap=%22round%22/%3E%3C/svg%3E';"></div>
                 <div class="welcome-title">Halo, aku <span class="welcome-grad">RexzAI</span></div>
-                <div class="welcome-desc">Pilih model di bawah. Dilengkapi CAPTCHA & rate limit.</div>
+                <div class="welcome-desc">Pilih model di bawah. Limit <span style="color:#fcd34d;">15 pesan/hari</span>.</div>
                 <div class="suggestions">
                     <span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Apa itu AI?</span>
                     <span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Kode Python</span>
@@ -334,15 +318,14 @@
 
     <script>
         // ============================================================
-        //  REXZAI — FULL (CAPTCHA + Rate Limit + Multi Model)
+        //  REXZAI — RATE LIMIT 15x/HARI + CAPTCHA + MULTI MODEL
         // ============================================================
 
-        // CONFIG
         const CONFIG = {
             OPENROUTER_API_KEY: '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',
             APP_NAME: 'RexzAI', APP_URL: 'https://rexzai.app',
             MAX_TOKENS: 150, TEMPERATURE: 0.4, TOP_P: 0.8, MAX_HISTORY: 3,
-            COOLDOWN_SECONDS: 20, MAX_REQUESTS_PER_MINUTE: 15, MAX_MESSAGE_LENGTH: 500,
+            MAX_REQUESTS_PER_DAY: 15, MAX_MESSAGE_LENGTH: 500,
             SYSTEM_PROMPT: `Kamu RexzAI. Jawab SINGKAT 1-3 kalimat dalam Bahasa Indonesia. Langsung ke inti, tanpa basa-basi.`
         };
 
@@ -357,10 +340,9 @@
         let currentModel = localStorage.getItem('rexzai_model') || 'nvidia/nemotron-3-ultra-550b-a55b:free';
         let conversationHistory = [{ role: 'system', content: CONFIG.SYSTEM_PROMPT }];
         let isProcessing = false, abortController = null, chatSessions = [];
-        let modelOffline = {}, cooldownTimer = null, cooldownSeconds = 0, offlineCheckInterval = null;
-        let requestTimestamps = [], captchaVerified = false, captchaRequiredAfter = 10;
+        let cooldownTimer = null, cooldownSeconds = 0, captchaVerified = false;
 
-        // ============ CAPTCHA SYSTEM ============
+        // ============ CAPTCHA ============
         const CaptchaSystem = {
             questions: [
                 { q: 'Berapa 2 + 3?', a: '5' }, { q: 'Berapa 7 - 2?', a: '5' }, { q: 'Berapa 4 + 1?', a: '5' },
@@ -372,8 +354,7 @@
 
             generate() {
                 const r = this.questions[Math.floor(Math.random() * this.questions.length)];
-                this.question = r; this.answer = r.a; this.attempts = 0;
-                return r.q;
+                this.question = r; this.answer = r.a; this.attempts = 0; return r.q;
             },
             verify(answer) {
                 this.attempts++;
@@ -391,28 +372,17 @@
                 if (existing) existing.remove();
 
                 const overlay = document.createElement('div');
-                overlay.id = 'captchaOverlay';
-                overlay.className = 'captcha-overlay';
+                overlay.id = 'captchaOverlay'; overlay.className = 'captcha-overlay';
                 overlay.innerHTML = `
                     <div class="captcha-card">
                         <div class="captcha-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                         <div class="captcha-title">Verifikasi Keamanan</div>
                         <div class="captcha-subtitle">Kami perlu memastikan kamu manusia.</div>
-                        <div class="captcha-robot-check" id="robotCheck">
-                            <div class="captcha-checkbox" id="captchaCheckbox"></div>
-                            <div class="captcha-robot-text">Centang — <strong>Saya bukan robot</strong></div>
-                        </div>
-                        <div class="captcha-question-area" id="captchaQuestionArea">
-                            <div class="captcha-question-text">${q}</div>
-                            <input type="text" class="captcha-input" id="captchaAnswerInput" placeholder="Jawaban..." autocomplete="off">
-                            <div class="captcha-error" id="captchaError">Jawaban salah.</div>
-                        </div>
+                        <div class="captcha-robot-check" id="robotCheck"><div class="captcha-checkbox" id="captchaCheckbox"></div><div class="captcha-robot-text">Centang — <strong>Saya bukan robot</strong></div></div>
+                        <div class="captcha-question-area" id="captchaQuestionArea"><div class="captcha-question-text">${q}</div><input type="text" class="captcha-input" id="captchaAnswerInput" placeholder="Jawaban..." autocomplete="off"><div class="captcha-error" id="captchaError">Jawaban salah.</div></div>
                         <div class="captcha-loading" id="captchaLoading"><div class="captcha-spinner"></div><span>Memverifikasi...</span></div>
                         <div class="captcha-success" id="captchaSuccess"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Terverifikasi!</span></div>
-                        <div class="captcha-buttons" id="captchaButtons">
-                            <button class="captcha-btn secondary" id="captchaCancelBtn">Kembali</button>
-                            <button class="captcha-btn primary" id="captchaVerifyBtn" disabled>Verifikasi</button>
-                        </div>
+                        <div class="captcha-buttons" id="captchaButtons"><button class="captcha-btn secondary" id="captchaCancelBtn">Kembali</button><button class="captcha-btn primary" id="captchaVerifyBtn" disabled>Verifikasi</button></div>
                     </div>`;
                 document.body.appendChild(overlay);
 
@@ -424,20 +394,17 @@
                 const successEl = document.getElementById('captchaSuccess');
                 const buttonsEl = document.getElementById('captchaButtons');
                 const questionArea = document.getElementById('captchaQuestionArea');
-                const checkbox = document.getElementById('captchaCheckbox');
 
                 document.getElementById('robotCheck').addEventListener('click', function() {
-                    checkbox.classList.toggle('checked');
+                    document.getElementById('captchaCheckbox').classList.toggle('checked');
                     questionArea.classList.toggle('active');
                     if (questionArea.classList.contains('active')) setTimeout(() => answerInput.focus(), 300);
                 });
-
                 answerInput.addEventListener('input', function() { verifyBtn.disabled = !this.value.trim(); errorEl.classList.remove('show'); });
                 answerInput.addEventListener('keydown', function(e) { if (e.key === 'Enter' && !verifyBtn.disabled) verifyBtn.click(); });
 
                 verifyBtn.addEventListener('click', function() {
-                    const answer = answerInput.value.trim();
-                    if (!answer) return;
+                    const answer = answerInput.value.trim(); if (!answer) return;
                     buttonsEl.style.display = 'none'; loadingEl.classList.add('active'); errorEl.classList.remove('show');
                     setTimeout(() => {
                         loadingEl.classList.remove('active');
@@ -450,7 +417,6 @@
                         }
                     }, 800 + Math.random() * 600);
                 });
-
                 document.getElementById('captchaCancelBtn').addEventListener('click', function() {
                     overlay.style.opacity = '0'; overlay.style.transition = 'opacity 0.3s ease';
                     setTimeout(() => { overlay.remove(); self.reset(); }, 300);
@@ -464,42 +430,65 @@
             overlay.style.opacity = '0'; overlay.style.transition = 'opacity 0.35s ease';
             setTimeout(() => {
                 overlay.remove();
-                CaptchaSystem.show(function() {
-                    toast('Verifikasi berhasil!', 'success');
-                    userInput.focus();
-                });
+                CaptchaSystem.show(function() { toast('Verifikasi berhasil!', 'success'); userInput.focus(); });
             }, 350);
         }
 
-        // ============ RATE LIMITER ============
+        // ============ RATE LIMITER (15x/HARI) ============
         function checkRateLimit() {
             const now = Date.now();
-            requestTimestamps = requestTimestamps.filter(t => now - t < 60000);
-            if (requestTimestamps.length >= CONFIG.MAX_REQUESTS_PER_MINUTE) {
-                cooldownSeconds = CONFIG.COOLDOWN_SECONDS;
-                updateCooldown();
+            const today = new Date().toDateString();
+            const saved = JSON.parse(localStorage.getItem('rexzai_daily_usage') || '{"date":"","count":0}');
+            
+            if (saved.date !== today) { saved.date = today; saved.count = 0; }
+            if (saved.count >= CONFIG.MAX_REQUESTS_PER_DAY) {
+                const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1); tomorrow.setHours(0, 0, 0, 0);
+                cooldownSeconds = Math.ceil((tomorrow.getTime() - now) / 1000);
+                updateCooldownDaily();
                 return false;
             }
-            requestTimestamps.push(now);
+            saved.count++;
+            localStorage.setItem('rexzai_daily_usage', JSON.stringify(saved));
+            updateDailyCounter(saved.count);
             return true;
         }
-        function updateCooldown() {
+
+        function updateCooldownDaily() {
             if (cooldownTimer) clearInterval(cooldownTimer);
             const tooltip = document.getElementById('offlineTooltip');
-            tooltip.textContent = `Terlalu banyak request. Coba lagi dalam ${cooldownSeconds} detik...`;
+            const h = Math.floor(cooldownSeconds / 3600), m = Math.floor((cooldownSeconds % 3600) / 60);
+            tooltip.textContent = `Limit harian tercapai (15/15). Reset dalam ${h}j ${m}m.`;
             tooltip.classList.add('show');
+            document.getElementById('rateInfo').style.color = '#fca5a5';
+            
             cooldownTimer = setInterval(() => {
                 cooldownSeconds--;
-                if (cooldownSeconds <= 0) { clearInterval(cooldownTimer); cooldownTimer = null; tooltip.classList.remove('show'); toast('Siap digunakan kembali!', 'success'); }
-                else tooltip.textContent = `Terlalu banyak request. Coba lagi dalam ${cooldownSeconds} detik...`;
-            }, 1000);
+                if (cooldownSeconds <= 0) {
+                    clearInterval(cooldownTimer); cooldownTimer = null; tooltip.classList.remove('show');
+                    localStorage.removeItem('rexzai_daily_usage'); updateDailyCounter(0);
+                    document.getElementById('rateInfo').style.color = '#22c55e';
+                    toast('Limit harian direset! Bisa chat lagi.', 'success');
+                } else {
+                    const h = Math.floor(cooldownSeconds / 3600), m = Math.floor((cooldownSeconds % 3600) / 60);
+                    tooltip.textContent = `Limit harian tercapai (15/15). Reset dalam ${h}j ${m}m.`;
+                }
+            }, 60000);
+        }
+
+        function updateDailyCounter(count) {
+            const info = document.getElementById('rateInfo');
+            if (info) {
+                info.textContent = `${count}/${CONFIG.MAX_REQUESTS_PER_DAY} hari ini`;
+                if (count >= CONFIG.MAX_REQUESTS_PER_DAY) info.style.color = '#fca5a5';
+                else if (count >= CONFIG.MAX_REQUESTS_PER_DAY * 0.8) info.style.color = '#fcd34d';
+                else info.style.color = '#22c55e';
+            }
         }
 
         // ============ MODEL ============
         function selectModel(chip) {
             if (chip.classList.contains('offline')) { toast('Model offline.', 'warning'); return; }
-            const model = chip.dataset.model;
-            if (model === currentModel) return;
+            const model = chip.dataset.model; if (model === currentModel) return;
             currentModel = model;
             const cfg = MODELS[model];
             document.getElementById('headerBadge').textContent = cfg.badge;
@@ -577,14 +566,11 @@
         function setLoading(on){ isProcessing=on; sendBtn.disabled=on; sendBtn.innerHTML=on?'<div class="spinner"></div>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>'; }
         function cancelRequest(){ if(abortController){abortController.abort();abortController=null;} setLoading(false); hideTyping(); toast('Dibatalkan','error'); }
 
-        // ============ API CALL ============
         async function callAPI(userMsg){
             abortController=new AbortController();
             const body={model:currentModel,messages:[...conversationHistory,{role:'user',content:userMsg}],max_tokens:CONFIG.MAX_TOKENS,temperature:CONFIG.TEMPERATURE,top_p:CONFIG.TOP_P,stream:false};
             const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${CONFIG.OPENROUTER_API_KEY}`,'HTTP-Referer':CONFIG.APP_URL,'X-Title':CONFIG.APP_NAME},body:JSON.stringify(body),signal:abortController.signal});
             if(!res.ok){
-                if(res.status===429){ cooldownSeconds=CONFIG.COOLDOWN_SECONDS; updateCooldown(); throw new Error('Terlalu banyak request. Tunggu '+CONFIG.COOLDOWN_SECONDS+' detik.'); }
-                if(res.status===503)throw new Error('Model maintenance.');
                 const err=await res.json().catch(()=>({}));
                 throw new Error(err.error?.message||`HTTP ${res.status}`);
             }
@@ -593,15 +579,17 @@
         }
 
         async function sendMessage(){
-            if (cooldownSeconds > 0) { toast(`Tunggu ${cooldownSeconds} detik...`, 'warning'); return; }
+            if (cooldownSeconds > 0) {
+                const h = Math.floor(cooldownSeconds / 3600), m = Math.floor((cooldownSeconds % 3600) / 60);
+                toast(`Limit harian! Reset dalam ${h}j ${m}m`, 'warning'); return;
+            }
             if (!CaptchaSystem.check()) {
                 CaptchaSystem.show(function() { toast('Terverifikasi! Silakan kirim pesan.', 'success'); userInput.focus(); });
                 return;
             }
-            if (!checkRateLimit()) { toast('Rate limit! Tunggu sebentar.', 'warning'); return; }
+            if (!checkRateLimit()) return;
             if(isProcessing)return;
-            const msg=userInput.value.trim().slice(0, CONFIG.MAX_MESSAGE_LENGTH);
-            if(!msg)return;
+            const msg=userInput.value.trim().slice(0, CONFIG.MAX_MESSAGE_LENGTH); if(!msg)return;
 
             hideWelcome(); addMsg(msg,true); conversationHistory.push({role:'user',content:msg});
             userInput.value=''; userInput.style.height='auto'; userInput.focus(); setLoading(true); showTyping();
@@ -619,7 +607,7 @@
         function clearChat(){
             if(isProcessing){toast('Tunggu proses selesai','error');return;}
             conversationHistory=[{role:'system',content:CONFIG.SYSTEM_PROMPT}];
-            chatContainer.innerHTML=`<div class="welcome-wrap" id="welcomeMsg"><div class="welcome-pfp"><img src="pfp.jpg" alt="RexzAI" onerror="this.onerror=null;this.src='${AI_FALLBACK_SVG}';" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="welcome-title">Chat Baru</div><div class="welcome-desc">Pilih model di bawah.</div><div class="suggestions"><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Apa itu AI?</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Kode Python</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Puisi singkat</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Tips produktif</span></div></div>`;
+            chatContainer.innerHTML=`<div class="welcome-wrap" id="welcomeMsg"><div class="welcome-pfp"><img src="pfp.jpg" alt="RexzAI" onerror="this.onerror=null;this.src='${AI_FALLBACK_SVG}';" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="welcome-title">Chat Baru</div><div class="welcome-desc">Limit <span style="color:#fcd34d;">15 pesan/hari</span>.</div><div class="suggestions"><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Apa itu AI?</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Kode Python</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Puisi singkat</span><span class="chip" onclick="sendSuggestion(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Tips produktif</span></div></div>`;
             window.welcomeMsg=document.getElementById('welcomeMsg'); localStorage.removeItem('rexzai_conv'); toast('Chat direset','success'); userInput.focus();
         }
 
@@ -633,9 +621,20 @@
         // INIT
         document.addEventListener('DOMContentLoaded', () => {
             updateModelUI(); loadHistory(); scrollToBottom();
+            // Reset daily counter if new day
+            const today = new Date().toDateString();
+            const saved = JSON.parse(localStorage.getItem('rexzai_daily_usage') || '{"date":"","count":0}');
+            if (saved.date !== today) { saved.date = today; saved.count = 0; localStorage.setItem('rexzai_daily_usage', JSON.stringify(saved)); }
+            updateDailyCounter(saved.count);
+            // Check if limit reached from previous day
+            if (saved.count >= CONFIG.MAX_REQUESTS_PER_DAY) {
+                const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1); tomorrow.setHours(0, 0, 0, 0);
+                cooldownSeconds = Math.ceil((tomorrow.getTime() - Date.now()) / 1000);
+                updateCooldownDaily();
+            }
             chatContainer.addEventListener('scroll', () => { scrollBtn.style.display = chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight > 120 ? 'flex' : 'none'; });
             try { const s=localStorage.getItem('rexzai_sessions'); if(s) chatSessions=JSON.parse(s); } catch(_){}
-            console.log('🛡️ RexzAI ready — CAPTCHA + Rate Limit Active');
+            console.log('🛡️ RexzAI ready — 15x/HARI + CAPTCHA');
         });
 
         let lastH=window.innerHeight;
