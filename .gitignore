@@ -1,3 +1,52 @@
+# ============================================
+#  REXZAI - File yang TIDAK di-upload ke GitHub
+# ============================================
+
+# API Key & Config (RAHASIA - JANGAN UPLOAD!)
 config.js
 *.env
+.env.*
+
+# File sistem operasi (sampah)
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# File temporary
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Folder dependency (kalau pakai npm)
+node_modules/
+package-lock.json
+
+# IDE / Text Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build / Output
+dist/
+build/
+*.min.js
+
+# Backup
+*.bak
+*.backup
+*.old
+
+# Security
+*.pem
+*.key
+*.crt
+*.p12
